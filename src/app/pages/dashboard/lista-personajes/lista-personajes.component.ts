@@ -1,6 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { PersonajesI } from 'src/app/interface/personajes.interface';
 import { PeticionesService } from 'src/app/services/peticiones.service';
+
+import {MatTableDataSource} from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 
 
 @Component({
@@ -11,32 +15,42 @@ import { PeticionesService } from 'src/app/services/peticiones.service';
 export class ListaPersonajesComponent implements OnInit {
 
   personajes:PersonajesI[] = []
+  dataSource!:MatTableDataSource<PersonajesI>
+  displayedColumns: string[] = [
+    'id',
+    'nombre',
+    'imagen',
+    'gender',
+    'status',
+    'species'
+  ]
+
+
   info:any = {
     next:null
   }
 
-  constructor(private _peticion:PeticionesService) { }
 
-  private pageNum = 1;
-  private query!:string;
+  @ViewChild(MatPaginator,{static:true}) paginator!:MatPaginator;
+  @ViewChild(MatSort, {static:true}) sort!: MatSort;
+
+  constructor(private _peticion:PeticionesService) { }
 
 
   ngOnInit(): void {
-    this.getPersonajes()
-
-  }
-
-  getPersonajes():void{
-    this._peticion.buscarPersonaje(this.query,this.pageNum)
+    this._peticion.getPersonajes()
     .subscribe({
       next: (data) => {
-        console.log(data)
-        const {info,results}:any = data;
-        this.personajes = [...this.personajes, ...results]
-        this.info = info
-        
-      }
+          const {info,results}:any = data;
+          this.personajes = [...this.personajes, ...results]
+          this.dataSource = new MatTableDataSource(this.personajes)
+          this.info = info
+          this.dataSource.paginator = this.paginator
+        }
     })
   }
+
+
+
 
 }
