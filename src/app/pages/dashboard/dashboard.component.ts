@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { PeticionesService } from '../../services/peticiones.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,21 +7,10 @@ import { PeticionesService } from '../../services/peticiones.service';
 })
 export class DashboardComponent implements OnInit {
 
-  result:any = []
-
-  constructor(private _peticion:PeticionesService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.getPersonajes()
   }
 
-  getPersonajes(){
-    this._peticion.getPersonajes().subscribe({
-      next: data =>
-      {
-        console.log(data.results)
-      }
-    })
-  }
 
 }

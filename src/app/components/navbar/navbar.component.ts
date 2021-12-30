@@ -15,7 +15,7 @@ export class NavbarComponent implements OnInit {
 
   onSearch(valor:string){
     if (valor && valor.length > 3){
-      this._router.navigate(['/dashboard'],{
+      this._router.navigate(['/lista-personajes'],{
         queryParams:{q:valor}
       })
     }
