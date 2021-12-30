@@ -7,19 +7,21 @@
             </div>
 
             <mat-form-field>
-                <mat-label>Buscar personaje</mat-label>
-                <input #input autocomplete="off" matInput placeholder="Ej: Nombre" (keyup)="applyFilter($event)">
+                <mat-label><span class="material-icons">search</span></mat-label>
+                <input #input autocomplete="off" matInput placeholder="Buscar nombres,especies y más..." (keyup)="applyFilter($event)">
             </mat-form-field>
-
-            <div>
-                <button class="btn btn-success">Agregar</button>
+    
+            <div class="example-button-container">
+                <button mat-fab color="primary" aria-label="Example icon button with a delete icon">
+                    <mat-icon>group_add</mat-icon>
+                </button>
             </div>
-
+            
             <div class="table-responsive">
-                <table mat-table [dataSource]="dataSource" 
-                class="mat-elevation-z8"
-                matSort>
-
+                <table 
+                    mat-table [dataSource]="dataSource" 
+                    class="mat-elevation-z8"
+                    matSort>
                     <ng-container matColumnDef="id">
                         <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
                         <td mat-cell *matCellDef="let personaje">{{personaje.id}} </td>
@@ -53,21 +55,13 @@
                     </ng-container>
 
                     <ng-container matColumnDef="accion">
-                        <th mat-header-cell *matHeaderCellDef> Accion </th>
+                        <th mat-header-cell *matHeaderCellDef> Mas info </th>
                         <td mat-cell *matCellDef="let personaje">
-                            <button mat-icon-button [matMenuTriggerFor]="menu">
-                                <mat-icon>more_vert</mat-icon>
+                            <button (click)="detallePersonaje(personaje.id)" mat-icon-button>
+                                <span class="material-icons">
+                                    info
+                                </span>
                             </button>
-                            <mat-menu #menu="matMenu">
-                                <button mat-menu-item>
-                                  <mat-icon>edit</mat-icon>
-                                  <span>Editar</span>
-                                </button>
-                                <button mat-menu-item>
-                                  <mat-icon>delete</mat-icon>
-                                  <span>Eliminar</span>
-                                </button>
-                            </mat-menu>
                         </td>
                     </ng-container>
 
@@ -81,7 +75,7 @@
             </div>
 
             <mat-paginator [length]="personajes.length" [pageSize]="5" [pageSizeOptions]="[3, 5, 10, 15, 20]"
-                aria-label="Select page">
+                    aria-label="Select page">
             </mat-paginator>
         </mat-card>
     </div>

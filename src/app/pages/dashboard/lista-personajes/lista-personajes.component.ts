@@ -26,10 +26,11 @@ export class ListaPersonajesComponent implements OnInit {
     'accion'
   ]
 
+  currentID!:number;
 
-  info:any = {
-    next:null
-  }
+  personaIndividual:any = []
+
+
 
 
   @ViewChild(MatPaginator,{static:true}) paginator!:MatPaginator;
@@ -45,11 +46,11 @@ export class ListaPersonajesComponent implements OnInit {
           const {info,results}:any = data;
           this.personajes = [...this.personajes, ...results]
           this.dataSource = new MatTableDataSource(this.personajes)
-          this.info = info
           this.dataSource.sort = this.sort
           this.dataSource.paginator = this.paginator
         }
     })
+
   }
 
 
@@ -57,6 +58,16 @@ export class ListaPersonajesComponent implements OnInit {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLocaleLowerCase();
   }
+
+  detallePersonaje(id:number){
+    this._peticion.getDetalles(id).subscribe({
+      next: data => {
+        this.personaIndividual = data
+        console.log(this.personaIndividual)
+      }
+    })
+  }
+
 
 
 
