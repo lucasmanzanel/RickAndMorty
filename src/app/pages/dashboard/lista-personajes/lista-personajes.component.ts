@@ -22,7 +22,8 @@ export class ListaPersonajesComponent implements OnInit {
     'imagen',
     'gender',
     'status',
-    'species'
+    'species',
+    'accion'
   ]
 
 
@@ -45,9 +46,16 @@ export class ListaPersonajesComponent implements OnInit {
           this.personajes = [...this.personajes, ...results]
           this.dataSource = new MatTableDataSource(this.personajes)
           this.info = info
+          this.dataSource.sort = this.sort
           this.dataSource.paginator = this.paginator
         }
     })
+  }
+
+
+  applyFilter(event:any){
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLocaleLowerCase();
   }
 
 
