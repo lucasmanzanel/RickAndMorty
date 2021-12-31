@@ -5,6 +5,7 @@ import { DashboardComponent } from './dashboard.component';
 
 const routes: Routes = [
   {path:'',component:DashboardComponent},
+  {path:'crud',loadChildren: () => import('./crud/crud.module').then(m => m.CrudModule)}
   //{path:`detallePersonaje`,loadChildren: () => import('./detalle-personaje/detalle-personaje.module').then (m => m.DetallePersonajeModule)},
 ];
 

@@ -68,6 +68,10 @@ export class ListaPersonajesComponent implements OnInit {
     })
   }
 
+  agregarPersonaje(){
+    this._router.navigate(['dashboard/crud'])
+  }
+
 
 
 

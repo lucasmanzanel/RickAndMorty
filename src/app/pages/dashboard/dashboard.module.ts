@@ -5,12 +5,10 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
 import { ListaPersonajesComponent } from './lista-personajes/lista-personajes.component';
 import { DetallePersonajeComponent } from './detalle-personaje/detalle-personaje.component';
-import {NavbarComponent} from '../../components/navbar/navbar.component'
 import { MaterialModule } from 'src/app/material/material.module';
 
 @NgModule({
   declarations: [
-    NavbarComponent,
     DashboardComponent,
     ListaPersonajesComponent,
     DetallePersonajeComponent

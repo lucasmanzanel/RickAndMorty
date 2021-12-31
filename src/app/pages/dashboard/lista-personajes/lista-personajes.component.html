@@ -8,11 +8,11 @@
 
             <mat-form-field>
                 <mat-label><span class="material-icons">search</span></mat-label>
-                <input #input autocomplete="off" matInput placeholder="Buscar nombres,especies y más..." (keyup)="applyFilter($event)">
+                <input #input autocomplete="off" matInput placeholder="Busqueda" (keyup)="applyFilter($event)">
             </mat-form-field>
     
             <div class="example-button-container">
-                <button mat-fab color="primary" aria-label="Example icon button with a delete icon">
+                <button (click)="agregarPersonaje()" mat-fab color="primary" aria-label="Example icon button with a delete icon">
                     <mat-icon>group_add</mat-icon>
                 </button>
             </div>
