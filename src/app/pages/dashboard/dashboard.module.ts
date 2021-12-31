@@ -22,7 +22,6 @@ import { MaterialModule } from 'src/app/material/material.module';
   ],
   exports:[
     ListaPersonajesComponent,
-    //DetallePersonajeComponent
   ]
 })
 export class DashboardModule { }

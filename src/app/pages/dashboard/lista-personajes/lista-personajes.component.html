@@ -67,38 +67,36 @@
             </mat-paginator>
         </mat-card>
 
-                <!-- Vertically centered modal -->
-    <div style="width: 100%;" class="modal fade" id="staticBackdrop" data-bs-backdrop="static" 
-        data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" 
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h2 class="modal-title" id="staticBackdropLabel">{{personaIndividual.name}}</h2>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    <div class="card" style="width: 18rem;">
-                        <img src="{{personaIndividual.image}}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <ul>
-                                <li>Estado: {{personaIndividual.status}}</li>
-                                <li>Especie: {{personaIndividual.gender}}</li>
-                                <li>Fecha: {{personaIndividual.created | date}}</li>
-                            </ul>
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" 
+            data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" 
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title" id="staticBackdropLabel">{{personaIndividual.name}}</h2>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="card" style="width: 18rem;">
+                            <img src="{{personaIndividual.image}}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <ul>
+                                    <li>ID: {{personaIndividual.id}}</li>
+                                    <li>Estado: {{personaIndividual.status}}</li>
+                                    <li>Especie: {{personaIndividual.gender}}</li>
+                                    <li>Fecha: {{personaIndividual.created | date}}</li>
+                                </ul>
+                            </div>
                         </div>
-                      </div>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                    </div>
                 </div>
-              </div>
+            </div>
         </div>
-    </div>
-
-
     </div>
 </div>
 
