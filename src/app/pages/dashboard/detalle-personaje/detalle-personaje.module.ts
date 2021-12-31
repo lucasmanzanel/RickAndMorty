@@ -8,7 +8,8 @@ import { DetallePersonajeRoutingModule } from './detalle-personaje-routing.modul
   declarations: [],
   imports: [
     CommonModule,
-    DetallePersonajeRoutingModule
+    DetallePersonajeRoutingModule,
+    
   ]
 })
 export class DetallePersonajeModule { }

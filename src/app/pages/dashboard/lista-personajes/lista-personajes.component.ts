@@ -5,6 +5,7 @@ import { PeticionesService } from 'src/app/services/peticiones.service';
 import {MatTableDataSource} from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -20,8 +21,6 @@ export class ListaPersonajesComponent implements OnInit {
     'id',
     'nombre',
     'imagen',
-    'gender',
-    'status',
     'species',
     'accion'
   ]
@@ -36,7 +35,9 @@ export class ListaPersonajesComponent implements OnInit {
   @ViewChild(MatPaginator,{static:true}) paginator!:MatPaginator;
   @ViewChild(MatSort, {static:true}) sort!: MatSort;
 
-  constructor(private _peticion:PeticionesService) { }
+  constructor(private _peticion:PeticionesService,
+    private route:ActivatedRoute, 
+    private _router:Router) { }
 
 
   ngOnInit(): void {
@@ -63,7 +64,6 @@ export class ListaPersonajesComponent implements OnInit {
     this._peticion.getDetalles(id).subscribe({
       next: data => {
         this.personaIndividual = data
-        console.log(this.personaIndividual)
       }
     })
   }

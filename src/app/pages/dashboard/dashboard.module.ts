@@ -19,6 +19,10 @@ import { MaterialModule } from 'src/app/material/material.module';
     CommonModule,
     DashboardRoutingModule,
     MaterialModule
+  ],
+  exports:[
+    ListaPersonajesComponent,
+    //DetallePersonajeComponent
   ]
 })
 export class DashboardModule { }

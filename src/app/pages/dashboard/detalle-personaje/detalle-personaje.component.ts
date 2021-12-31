@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { PersonajesI } from 'src/app/interface/personajes.interface';
+import { PeticionesService } from 'src/app/services/peticiones.service';
 
 @Component({
   selector: 'app-detalle-personaje',
@@ -7,9 +11,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetallePersonajeComponent implements OnInit {
 
-  constructor() { }
+  personaje!: Observable<PersonajesI>
+
+  currentPersonaje:any = null
+
+  constructor(private peticion:PeticionesService,
+    private route:ActivatedRoute, router:Router) { }
 
   ngOnInit(): void {
+    console.log(this.getPersonaje(3))
   }
 
+  getPersonaje(id:any):void{
+    this.peticion.getDetalles(id)
+    .subscribe(
+      {next:data => {
+        this.currentPersonaje = data
+        console.log(data)
+      }}
+    )
+  }
 }
