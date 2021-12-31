@@ -22,6 +22,7 @@ export class ListaPersonajesComponent implements OnInit {
     'nombre',
     'imagen',
     'species',
+    'info',
     'accion'
   ]
 
