@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { IAtribute, MODEL_ERROR_FORM } from './model-message-error';
 
@@ -13,16 +14,17 @@ export class CrudComponent implements OnInit {
   formAdd!:FormGroup
 
   constructor(private _formBuilder:FormBuilder,
-    private _router:Router) { }
+    private _router:Router,
+    private _snackBar:MatSnackBar) { }
 
   ngOnInit(): void {
     this.formAdd = this._formBuilder.group({
-      id: ['',Validators.required],
-      nombre: ['',[Validators.required,Validators.minLength(3)]],
-      estado: ['',Validators.required],
-      tipo: ['',Validators.required],
-      sexo: ['',Validators.required],
-      especie: ['',Validators.required]
+      id: ['',[Validators.required,Validators.pattern(/^([0-9])*$/)]],
+      nombre: ['',[Validators.required,Validators.minLength(3),Validators.pattern(/^([a-z])*$/)]],
+      estado: ['',[Validators.required]],
+      tipo: ['',[Validators.required,Validators.pattern(/^([a-z])*$/),Validators.minLength(3)]],
+      sexo: ['',[Validators.required]],
+      especie: ['',[Validators.required,Validators.pattern(/^([a-z])*$/),Validators.minLength(3)]]
 
     })
   }
@@ -44,5 +46,12 @@ export class CrudComponent implements OnInit {
     return ''
   }
 
+  enviar(){
+    this._router.navigate(['dashboard'])
+    this._snackBar.open('Personaje creado con exito','',{
+      panelClass:['snackBarSuccess'],
+      duration:3000
+    })
+  }
 
 }

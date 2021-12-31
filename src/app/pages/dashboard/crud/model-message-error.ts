@@ -15,6 +15,10 @@ export const MODEL_ERROR_FORM: IAtribute[] = [
         {
             name:'required',
             message:'El ID es necesario'
+        },
+        {
+            name:'pattern',
+            message:'Solo se aceptan valores numericos'
         }
     ]
 },
@@ -28,6 +32,10 @@ export const MODEL_ERROR_FORM: IAtribute[] = [
         {
             name: 'minlength',
             message:'El nombre requiere al menos 3 caracteres'
+        },
+        {
+            name:'pattern',
+            message:'No se aceptan numeros'
         }
     ]
 },
@@ -38,6 +46,7 @@ export const MODEL_ERROR_FORM: IAtribute[] = [
             name:'required',
             message:'El estado es requerido'
         }
+
     ]
 },{
     formControlName:'tipo',
@@ -45,7 +54,15 @@ export const MODEL_ERROR_FORM: IAtribute[] = [
         {
             name:'required',
             message:'El tipo es requerido'
-        }
+        },
+        {
+            name:'pattern',
+            message:'No se aceptan numeros'
+        },
+        {
+            name: 'minlength',
+            message:'El nombre requiere al menos 3 caracteres'
+        },
     ]
 },{
     formControlName:'sexo',
@@ -61,7 +78,15 @@ export const MODEL_ERROR_FORM: IAtribute[] = [
         {
             name:'required',
             message:'El campo especie es requerido'
-        }
+        },
+        {
+            name:'pattern',
+            message:'No se aceptan numeros'
+        },
+        {
+            name: 'minlength',
+            message:'El nombre requiere al menos 3 caracteres'
+        },
     ]
 },
 ]

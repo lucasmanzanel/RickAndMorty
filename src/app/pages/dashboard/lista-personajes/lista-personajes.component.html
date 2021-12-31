@@ -62,7 +62,7 @@
                     </tr>
                 </table>
             </div>
-            <mat-paginator [length]="personajes.length" [pageSize]="5" [pageSizeOptions]="[3, 5, 10, 15, 20]"
+            <mat-paginator [length]="personajes.length" [pageSize]="2" [pageSizeOptions]="[2, 3, 5, 10, 15, 20]"
                     aria-label="Select page">
             </mat-paginator>
         </mat-card>
@@ -84,7 +84,7 @@
                                 <ul>
                                     <li>ID: {{personaIndividual.id}}</li>
                                     <li>Estado: {{personaIndividual.status}}</li>
-                                    <li>Especie: {{personaIndividual.gender}}</li>
+                                    <li>Sexo: {{personaIndividual.gender}}</li>
                                     <li>Fecha: {{personaIndividual.created | date}}</li>
                                 </ul>
                             </div>

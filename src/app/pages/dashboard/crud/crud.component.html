@@ -1,60 +1,62 @@
-<mat-card class="col-lg-12" style="height: auto; background-color: aliceblue; ">
-    <div class="d-grid gap-2 d-lg-flex justify-content-md-start">
-        <button class="volver" (click)="back()" mat-raised-button>
-            <span class="material-icons">
-                undo
-            </span>
-            Regresar
-        </button>
-    </div>
+<div class="container">
+    <mat-card class="col-lg-12" style="height: auto; background-color: aliceblue; ">
+        <div class="d-grid gap-2 d-lg-flex justify-content-md-start">
+            <button class="volver" (click)="back()" mat-raised-button>
+                <span class="material-icons">
+                    undo
+                </span>
+                Regresar
+            </button>
+        </div>
 
-    <h1 class="text-center">Agregar nuevo personaje</h1>
-        <form [formGroup]="formAdd" class="host">
-            <mat-form-field appearance="fill">
-                <mat-label>id</mat-label>
-                <input formControlName="id" autocomplete="off" matInput>
-                <mat-error>{{getError('id')}}</mat-error>
-            </mat-form-field>
-            <mat-form-field appearance="fill">
-                <mat-label>Nombre</mat-label>
-                <input formControlName="nombre" autocomplete="off" matInput>
-                <mat-error>{{getError('nombre')}}</mat-error>
+        <h1 class="text-center">Agregar nuevo personaje</h1>
+            <form [formGroup]="formAdd" class="host" (submit)="enviar()">
+                <mat-form-field appearance="fill">
+                    <mat-label>id</mat-label>
+                    <input formControlName="id" autocomplete="off" matInput>
+                    <mat-error>{{getError('id')}}</mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Nombre</mat-label>
+                    <input formControlName="nombre" autocomplete="off" matInput>
+                    <mat-error>{{getError('nombre')}}</mat-error>
 
-            </mat-form-field>
-            <br>
+                </mat-form-field>
+                <br>
 
-            <mat-form-field appearance="fill">
-                <mat-label>Estado</mat-label>
-                <mat-select formControlName="estado">
-                    <mat-option value="1">Vivo</mat-option>
-                    <mat-option value="2">Muerto</mat-option>
-                    <mat-option value="2">Desconocido</mat-option>
-                  </mat-select>
-                  <mat-error>{{getError('estado')}}</mat-error>
+                <mat-form-field appearance="fill">
+                    <mat-label>Estado</mat-label>
+                    <mat-select formControlName="estado">
+                        <mat-option value="1">Vivo</mat-option>
+                        <mat-option value="2">Muerto</mat-option>
+                        <mat-option value="2">Desconocido</mat-option>
+                    </mat-select>
+                    <mat-error>{{getError('estado')}}</mat-error>
 
-            </mat-form-field>
-            <mat-form-field appearance="fill">
-                <mat-label>Tipo</mat-label>
-                <input formControlName="tipo" autocomplete="off" matInput>
-                <mat-error>{{getError('tipo')}}</mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Tipo</mat-label>
+                    <input formControlName="tipo" autocomplete="off" matInput>
+                    <mat-error>{{getError('tipo')}}</mat-error>
 
-            </mat-form-field>
-            <mat-form-field appearance="fill">
-                <mat-label>Sexo</mat-label>
-                <mat-select formControlName="sexo">
-                    <mat-option value="1">Masculino</mat-option>
-                    <mat-option value="2">Femenino</mat-option>
-                  </mat-select>
-                  <mat-error>{{getError('sexo')}}</mat-error>            
-            </mat-form-field>
-            <br>
-            <mat-form-field appearance="fill">
-                <mat-label>Especie</mat-label>
-                <input formControlName="especie" autocomplete="off" matInput>
-                <mat-error>{{getError('especie')}}</mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Sexo</mat-label>
+                    <mat-select formControlName="sexo">
+                        <mat-option value="1">Masculino</mat-option>
+                        <mat-option value="2">Femenino</mat-option>
+                    </mat-select>
+                    <mat-error>{{getError('sexo')}}</mat-error>            
+                </mat-form-field>
+                <br>
+                <mat-form-field appearance="fill">
+                    <mat-label>Especie</mat-label>
+                    <input formControlName="especie" autocomplete="off" matInput>
+                    <mat-error>{{getError('especie')}}</mat-error>
 
-            </mat-form-field>
+                </mat-form-field>
 
-            <button style="margin-top: 1rem;" [disabled]="formAdd.invalid"  type="submit" class="btn ancho">Enviar</button>
-        </form>
-</mat-card>
+                <button style="margin-top: 1rem;" [disabled]="formAdd.invalid"  type="submit" class="btn btn-success ancho">Enviar</button>
+            </form>
+    </mat-card>
+</div>
